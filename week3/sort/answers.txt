@@ -1,0 +1,46 @@
+sort1 uses: Bubble sort
+How do you know?: This algorithm runs faster on sorted lists than on reversed & random lists because it compares current and adjacent items.
+If there's nothing to swap, the algorithm moves quickly through the list and terminates.
+Also, reversed lists took the longest to complete in comparison to other algorithms.
+Bubble sort takes long because it has to make a large number of comparisons and swaps to get the list correctly sorted.
+
+5k random =     0.067
+10k random =    0.214
+50k random =    5.953
+    5k reversed =   0.072
+    10k reversed =  0.236
+    50k reversed =  5.371
+            5k sorted = 0.028
+            10k sorted = 0.059
+            50k sorted = 0.730
+
+
+sort2 uses: Merge sort
+How do you know?: This algorithm ran much faster than the others and was barely affected by the order of data being sorted and the amount.
+
+5k random =     0.026
+10k random =    0.056
+50k random =    0.546
+    5k reversed =   0.019
+    10k reversed =  0.048
+    50k reversed =  0.658
+            5k sorted = 0.018
+            10k sorted = 0.054
+            50k sorted = 0.646
+
+
+sort3 uses: Selection Sort
+How do you know?: For each data amount, this algorithm ran for essentially the time regardless of
+whether the data was reversed, sorted or random. Selection sort has this characteristic because,
+when sorting in ascending order, it always finds the smallest item in the unsorted section of a list
+and places it in its correct position, then does not touch the sorted items again.
+
+5k random =     0.060
+10k random =    0.196
+50k random =    2.787
+    5k reversed =   0.061
+    10k reversed =  0.158
+    50k reversed =  2.891
+            5k sorted = 0.049
+            10k sorted = 0.152
+            50k sorted = 2.559

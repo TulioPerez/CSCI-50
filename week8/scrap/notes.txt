@@ -1,0 +1,10 @@
+terminal commands:
+
+connect to url (curl): simulate being a browser and sending a packet:
+    curl -I https://www.googl.com
+
+start server and listen for http requests:
+    http-server
+
+Check html code:
+    validator.w3.org

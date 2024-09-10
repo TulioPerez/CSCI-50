@@ -1,0 +1,28 @@
+I would query the database to average the return value of the averages of the songs' energy, valence and danceability using:
+
+SELECT ((avg_energy + avg_valence + avg_dance) / 3) as overall_average
+FROM (
+    SELECT
+        AVG(energy) as avg_energy,
+        AVG(valence) as avg_valence,
+        AVG(danceability) as avg_dance
+    From songs
+);
+
+The overall_average value returned for this user is 0.619987666666667.
+I'd create an algorithm that rounds this return value then compares it to a list of possible 'moods' in the form of floats such as:
+
+1.0 = spiritual
+0.9 = ecstatic
+0.8 = joyful
+0.7 = content
+0.6 = somewhat content
+0.5 = indifferent
+
+etc...
+
+This may not be representative of the listener because it does not consider users who are 'hardcore' fans of one particular genre
+whose songs tend to have high energy values, such as heavy metal, or lower energy values such as blues.
+
+One way to resolve this would be to have the program average the energy, danceability and valence of all the songs in each genre.
+The average values for each would be mapped to the midpoint of the scale above.

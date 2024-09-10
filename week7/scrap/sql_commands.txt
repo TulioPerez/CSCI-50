@@ -1,0 +1,95 @@
+create a database:
+    sqlite3 [database_name].db
+    y
+
+change database type to csv:
+    sqlite> .mode csv
+
+import data from csv file:
+    sqlite> .import [filename].csv
+
+quit sqlite3:
+    sqlite> .quit
+
+re-open the database file:
+    sqlite3 [databasefile].db
+
+show the database header schema:
+    sqlite> .schema
+
+select and list all items in the database:
+    sqlite> SELECT * FROM [database_file];
+
+select only one column:
+    sqlite> SELECT [column_name] FROM [database_file]
+
+select and display only 10 items in column:
+    sqlite> SELECT [column_name] FROM [database_file] LIMIT 10;
+
+Other keywords:
+    AVG         get average
+    COUNT       count items
+    DISTINCT    show distinct items
+    LOWER       make lowercase
+    UPPER       make uppercase
+    MAX         get max value
+    MIN         get min value
+
+example to get count of all rows in languages file:
+    sqlite> SELECT COUNT(*) FROM languages;
+
+example to get count of all languages in languages file:
+    sqlite> SELECT COUNT(language) FROM languages;
+
+example to get distict language values
+    sqlite> SELECT DISTINCT(language) FROM languages;
+
+example showing nesting to get count of distict language values from languages db
+    sqlite> SELECT COUNT(DISTINCT(language)) FROM languages;
+
+Predicates that provide further control over data
+    WHERE
+    LIKE
+    ORDER BY
+    LIMIT       limits output of list
+    GROUP BY
+    AND
+    ASC         (order by) ascending order
+    DESC        (order by) descending order
+    AS          to give a column header a nickname
+
+example to output only IDE from languages db
+    SELECT COUNT(*) FROM languages WHERE Tool = 'VS Code';
+
+example to output only IDE from languages db and proficiency is >= 2
+    SELECT COUNT(*) FROM languages WHERE Tool = 'VS Code' AND Proficiency >= 2;
+
+More Commands
+    INSERT
+    DELETE
+    UPDATE
+
+example of INSERT:
+    sqlite> INSERT INTO languages (language, proficiency) VALUES ('SQL', '1');
+
+example of DELETE (*use very carefully*):
+    sqlite> DELETE FROM languages WHERE Tool IS NULL;
+
+Datatypes in SQL
+    BLOB        binary large object = large file with 0' and 1's
+    INTEGER
+    NUMERIC
+    REAL
+    TEXT
+    .timer ON   turn on timer for code execution
+
+Other Keywords:
+    NOT NULL    specify a value that cannot be NULL
+    UNIQUE      like a singleton
+
+Primary key = serial number value (key) that is in the original location
+Foeign key = a referenced key that is in another file location
+
+example with nested query - select title from shows where the show's id is in the following subquery:
+    SELECT title FROM shows WHERE id IN (SELECT show_id FROM genres WHERE genre = 'Comedy' LIMIT 10);
+

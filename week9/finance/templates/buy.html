@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <h3>Purchase Stock</h3>
+    <form action="/buy" method="post">
+        <input class="form-control mx-auto w-auto mb-2 text-center" autocomplete="off" name="symbol" id="symbol" placeholder="Stock Symbol" type="text">
+        <input class="form-control mx-auto w-auto mb-2 text-center" autocomplete="off" name="shares" id="shares" placeholder="Shares" type="number">
+
+        <button class="btn btn-primary" type="submit">Purchase!</button>
+    </form>
+
+    {% if quote %}
+        <h2>{{ quote["name"] }} ({{ quote["symbol"] }})</h2>
+        <p>Price: {{ quote["price"]|usd }}</p>
+    {% endif %}
+
+{% endblock %}

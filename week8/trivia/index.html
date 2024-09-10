@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+
+    <script>
+        // Check that the document is loaded before running script
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Get all buttons
+            let buttons = document.querySelectorAll('button');
+            let message = document.getElementById('message');
+
+            // Add event listeners for each button
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+
+                    // Reset button BG color for all buttons
+                    buttons.forEach(b => b.classList.remove('correct', 'incorrect'));
+
+                    // Check answer and change button & message
+                    if (button.id === 'mario') {
+                        button.classList.add('correct');
+                        message.textContent = 'Correct!'
+                    } else {
+                        button.classList.add('incorrect');
+                        message.textContent = 'Incorrect.'
+                    }
+                });
+            });
+
+            // Declare & initialize variables for button, text area and message
+            let submit_button = document.getElementById('submit');
+            let text_area = document.getElementById('user_input');
+            let message2 = document.getElementById('message2');
+
+            // Onclick, check lowercased value in text area for correct answer
+            submit_button.addEventListener('click', function() {
+                var answer = text_area.value.trim().toLowerCase();
+
+                // Correct - change BG color to green and change message text
+                if (answer === 'tetris') {
+                    text_area.classList.add('correct');
+                    text_area.classList.remove('incorrect');
+                    message2.textContent = 'Correct!'
+
+                // Incorrect - change BG color to red and change message text
+                } else {
+                    text_area.classList.add('incorrect');
+                    text_area.classList.remove('ccorrect');
+                    message2.textContent = 'Incorrect.'
+                }
+            });
+        });
+    </script>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice</h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which of the following is the most successful NES game of all time?</h3>
+                <div id='message' class="message"></div>
+
+                <!-- Choices -->
+                <button id="contra">Contra</button>
+                <button id="zelda">The Legend of Zelda</button>
+                <button id="mario">Super Mario Bros.</button>
+                <button id="tetris">Tetris</button>
+                <button id="punch_out">Punch Out!</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>Of the choices above, which ranked as the second most successful of all time?</h3>
+                <div id='message2' class="message" style="text-align: left;"></div>
+
+                <!-- Text area for user input -->
+                <textarea id="user_input" rows="4" type="text" placeholder="Type your answer."></textarea>
+
+                <button id="submit" class="submit">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>

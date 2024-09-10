@@ -1,0 +1,10 @@
+Project Requirements:
+    - HTML pages: 4+
+    - HTML tags: 10+
+    - Bootstrap Features: 1+
+    - CSS Stylesheets: 1+
+    - Javascript: 1+ features
+    - Responsive Design for comp's and mobile
+
+Project - Homepage
+    - A short history of flight
